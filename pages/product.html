@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Tech Tee | VESTIMENTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        .product-detail-container {
+            padding: 10rem 5% 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .main-img {
+            width: 100%;
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            display: block;
+        }
+
+        .main-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: zoom-in;
+        }
+
+        .product-meta h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-meta .price {
+            font-size: 1.5rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        .size-selector {
+            margin-bottom: 2rem;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .size-btn {
+            width: 50px;
+            height: 50px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .size-btn:hover,
+        .size-btn.selected {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            width: fit-content;
+            padding: 0.5rem;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+        }
+
+        .qty-btn:hover {
+            color: var(--accent);
+        }
+
+        #qty-display {
+            font-size: 1.2rem;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail-container {
+                grid-template-columns: 1fr;
+                padding-top: 6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo bebas-font">VESTIMENTA</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+        </ul>
+        <div class="cart-icon">CART (0)</div>
+    </nav>
+
+    <div class="product-detail-container">
+        <div class="main-img">
+            <img src="../assets/images/black tech tee.jpg" alt="Product Image" id="product-img" loading="lazy">
+        </div>
+        <div class="product-meta">
+            <h1 class="bebas-font" id="product-name">Product Name</h1>
+            <p class="price" id="product-price">0 DZD</p>
+            <p id="product-desc" style="margin-bottom: 2rem; line-height: 1.6; color: var(--muted);">
+                Description...
+            </p>
+
+            <div class="size-selector" id="size-selector-container">
+                <span class="bebas-font">Select Size</span>
+                <div class="size-options">
+                    <button class="size-btn">S</button>
+                    <button class="size-btn selected">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                </div>
+            </div>
+
+            <div class="quantity-selector">
+                <button class="qty-btn" id="qty-minus">-</button>
+                <span id="qty-display" class="bebas-font">1</span>
+                <button class="qty-btn" id="qty-plus">+</button>
+            </div>
+
+            <button class="cta-button" id="add-to-cart-btn" style="width: 100%;">Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = JSON.parse(localStorage.getItem('vestimenta_selected_product'));
+            if (product) {
+                document.getElementById('product-img').src = product.image;
+                document.getElementById('product-name').innerText = product.name;
+                document.getElementById('product-price').innerText = product.price;
+                document.getElementById('product-desc').innerText = product.description || '';
+                document.title = `${product.name} | VESTIMENTA`;
+
+                if (product.hasSizes === false) {
+                    document.getElementById('size-selector-container').style.display = 'none';
+                }
+            }
+
+            // Size selection
+            const sizeBtns = document.querySelectorAll('.size-btn');
+            sizeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sizeBtns.forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                });
+            });
+
+            // Quantity selector logic
+            let quantity = 1;
+            const qtyDisplay = document.getElementById('qty-display');
+            const plusBtn = document.getElementById('qty-plus');
+            const minusBtn = document.getElementById('qty-minus');
+
+            plusBtn.addEventListener('click', () => {
+                quantity++;
+                qtyDisplay.innerText = quantity;
+            });
+
+            minusBtn.addEventListener('click', () => {
+                if (quantity > 1) {
+                    quantity--;
+                    qtyDisplay.innerText = quantity;
+                }
+            });
+
+            // Add to cart listener for this page specifically to ensure current state
+            document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+                const selectedSizeBtn = document.querySelector('.size-btn.selected');
+                const selectedSize = product.hasSizes === false ? 'One Size' : (selectedSizeBtn ? selectedSizeBtn.innerText : 'M');
+                addToCart({
+                    ...product,
+                    size: selectedSize,
+                    quantity: quantity
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

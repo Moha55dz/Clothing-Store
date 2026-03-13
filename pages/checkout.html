@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | VESTIMENTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        .checkout-container {
+            padding: 10rem 5% 5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 4rem;
+        }
+
+        .order-summary {
+            background: var(--secondary);
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo bebas-font">VESTIMENTA</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+        </ul>
+        <div class="cart-icon" onclick="window.location.href='checkout.html'">CART (0)</div>
+    </nav>
+
+    <div class="checkout-container">
+        <div>
+            <h1 class="bebas-font" style="font-size: 3rem; margin-bottom: 2rem;">Détails de Livraison</h1>
+            <form id="checkout-form">
+                <input type="text" placeholder="Nom Complet" required
+                    style="width: 100%; padding: 1rem; background: var(--secondary); border: 1px solid var(--border); color: white; margin-bottom: 1rem;">
+                <input type="tel" placeholder="Numéro de Téléphone (Ex: 0550...)" required pattern="0[567][0-9]{8}"
+                    style="width: 100%; padding: 1rem; background: var(--secondary); border: 1px solid var(--border); color: white; margin-bottom: 1rem;">
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                    <select id="wilaya" required
+                        style="width: 100%; padding: 1rem; background: var(--secondary); border: 1px solid var(--border); color: white;">
+                        <option value="">Sélectionner Wilaya</option>
+                        <option value="1">01 - Adrar</option>
+                        <option value="2">02 - Chlef</option>
+                        <option value="3">03 - Laghouat</option>
+                        <option value="4">04 - Oum El Bouaghi</option>
+                        <option value="5">05 - Batna</option>
+                        <option value="6">06 - Béjaïa</option>
+                        <option value="7">07 - Biskra</option>
+                        <option value="8">08 - Béchar</option>
+                        <option value="9">09 - Blida</option>
+                        <option value="10">10 - Bouira</option>
+                        <option value="11">11 - Tamanrasset</option>
+                        <option value="12">12 - Tébessa</option>
+                        <option value="13">13 - Tlemcen</option>
+                        <option value="14">14 - Tiaret</option>
+                        <option value="15">15 - Tizi Ouzou</option>
+                        <option value="16">16 - Alger</option>
+                        <option value="17">17 - Djelfa</option>
+                        <option value="18">18 - Jijel</option>
+                        <option value="19">19 - Sétif</option>
+                        <option value="20">20 - Saïda</option>
+                        <option value="21">21 - Skikda</option>
+                        <option value="22">22 - Sidi Bel Abbès</option>
+                        <option value="23">23 - Annaba</option>
+                        <option value="24">24 - Guelma</option>
+                        <option value="25">25 - Constantine</option>
+                        <option value="26">26 - Médéa</option>
+                        <option value="27">27 - Mostaganem</option>
+                        <option value="28">28 - M'Sila</option>
+                        <option value="29">29 - Mascara</option>
+                        <option value="30">30 - Ouargla</option>
+                        <option value="31">31 - Oran</option>
+                        <option value="32">32 - El Bayadh</option>
+                        <option value="33">33 - Illizi</option>
+                        <option value="34">34 - Bordj Bou Arreridj</option>
+                        <option value="35">35 - Boumerdès</option>
+                        <option value="36">36 - El Tarf</option>
+                        <option value="37">37 - Tindouf</option>
+                        <option value="38">38 - Tissemsilt</option>
+                        <option value="39">39 - El Oued</option>
+                        <option value="40">40 - Khenchela</option>
+                        <option value="41">41 - Souk Ahras</option>
+                        <option value="42">42 - Tipaza</option>
+                        <option value="43">43 - Mila</option>
+                        <option value="44">44 - Aïn Defla</option>
+                        <option value="45">45 - Naâma</option>
+                        <option value="46">46 - Aïn Témouchent</option>
+                        <option value="47">47 - Ghardaïa</option>
+                        <option value="48">48 - Relizane</option>
+                        <option value="49">49 - El M'Ghair</option>
+                        <option value="50">50 - El Menia</option>
+                        <option value="51">51 - Ouled Djellal</option>
+                        <option value="52">52 - Bordj Baji Mokhtar</option>
+                        <option value="53">53 - Béni Abbès</option>
+                        <option value="54">54 - Timimoun</option>
+                        <option value="55">55 - Touggourt</option>
+                        <option value="56">56 - Djanet</option>
+                        <option value="57">57 - In Salah</option>
+                        <option value="58">58 - In Guezzam</option>
+                        <option value="59">59 - Aflou</option>
+                        <option value="60">60 - Barika</option>
+                        <option value="61">61 - Ksar Chellala</option>
+                        <option value="62">62 - Messaad</option>
+                        <option value="63">63 - Aïn Oussera</option>
+                        <option value="64">64 - Boussaâda</option>
+                        <option value="65">65 - El Abiodh Sidi Cheikh</option>
+                        <option value="66">66 - El Kantara</option>
+                        <option value="67">67 - Bir El Ater</option>
+                        <option value="68">68 - Ksar El Boukhari</option>
+                        <option value="69">69 - El Aricha</option>
+                    </select>
+                    <input type="text" placeholder="Commune" required
+                        style="width: 100%; padding: 1rem; background: var(--secondary); border: 1px solid var(--border); color: white;">
+                </div>
+
+                <input type="text" placeholder="Adresse Exacte" required
+                    style="width: 100%; padding: 1rem; background: var(--secondary); border: 1px solid var(--border); color: white; margin-bottom: 2rem;">
+
+                <h2 class="bebas-font" style="margin-bottom: 1rem;">Méthode de Paiement</h2>
+                <div
+                    style="background: var(--secondary); padding: 1.5rem; border: 1px solid var(--accent); margin-bottom: 2rem;">
+                    <label style="display: flex; align-items: center; gap: 1rem; cursor: pointer;">
+                        <input type="radio" checked name="payment" style="accent-color: var(--accent);">
+                        <span>Paiement à la livraison (Cash on Delivery)</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="cta-button" style="width: 100%;">Confirmer la Commande</button>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <h2 class="bebas-font" style="margin-bottom: 2rem;">Résumé de la Commande</h2>
+            <div id="checkout-items">
+                <!-- Items will be populated by JS -->
+                <p style="color: var(--muted);">Votre panier est vide.</p>
+            </div>
+            <div class="total-row bebas-font">
+                <span>Total</span>
+                <span id="checkout-total">0 DZD</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/cart.js"></script>
+    <script>
+        function renderCheckoutItems() {
+            const itemsContainer = document.getElementById('checkout-items');
+            const totalEl = document.getElementById('checkout-total');
+
+            if (cart.length > 0) {
+                itemsContainer.innerHTML = '';
+                let total = 0;
+                cart.forEach(item => {
+                    const priceStr = item.price.replace('$', '').replace(' DZD', '');
+                    const price = parseFloat(priceStr);
+                    total += price * item.quantity;
+                    itemsContainer.innerHTML += `
+                        <div class="cart-item">
+                            <div style="flex-grow: 1;">
+                                <div class="bebas-font">${item.name}</div>
+                                <div style="font-size: 0.8rem; color: var(--muted);">Taille: ${item.size} x ${item.quantity}</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="bebas-font">${item.price}</div>
+                                <button onclick="removeFromCart('${item.id}', '${item.size}')" 
+                                        style="background: none; border: none; color: #ff6b6b; font-size: 0.7rem; cursor: pointer; text-transform: uppercase; margin-top: 0.5rem; letter-spacing: 1px;">
+                                    Supprimer
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                // Assuming price is in DZD or converting USD-like to DZD (e.g. * 100)
+                totalEl.innerText = `${(total).toLocaleString()} DZD`;
+            } else {
+                itemsContainer.innerHTML = '<p style="color: var(--muted);">Votre panier est vide.</p>';
+                totalEl.innerText = '0 DZD';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCheckoutItems);
+
+        document.getElementById('checkout-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Commande confirmée ! Nous vous contacterons par téléphone pour la livraison.');
+            localStorage.removeItem('vestimenta_cart');
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+
+</html>

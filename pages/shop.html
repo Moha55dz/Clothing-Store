@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All | VESTIMENTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <style>
+        .filter-bar {
+            padding: 8rem 5% 2rem;
+            display: flex;
+            gap: 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo bebas-font">VESTIMENTA</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="shop.html" style="color: white;">Shop</a></li>
+        </ul>
+        <div class="cart-icon">CART (0)</div>
+    </nav>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" aria-label="Tout afficher">All</button>
+        <button class="filter-btn" aria-label="Filtrer par Hauts">Tops</button>
+        <button class="filter-btn" aria-label="Filtrer par Bas">Bottoms</button>
+        <button class="filter-btn" aria-label="Filtrer par Vêtements d'extérieur">Outerwear</button>
+        <button class="filter-btn" aria-label="Filtrer par Accessoires">Accessories</button>
+    </div>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="grid">
+            <!-- Product Card 1 -->
+            <div class="product-card" data-category="tops"
+                onclick="selectProduct({id: 'black-tech-tee', name: 'Black Tech Tee', price: '2500 DZD', image: '../assets/images/black tech tee.jpg', hasSizes: true, description: 'Engineered for performance and style. Featuring moisture-wicking technology and a tailored athletic fit.'})">
+                <div class="product-img">
+                    <img src="../assets/images/black tech tee.jpg" alt="Black Tech Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Black Tech Tee</h3>
+                    <p class="price">2500 DZD</p>
+                </div>
+            </div>
+            <!-- More products will be added dynamically or via mapping -->
+            <div class="product-card" data-category="bottoms"
+                onclick="selectProduct({id: 'stealth-cargo', name: 'Stealth Cargo', price: '7000 DZD', image: '../assets/images/stealth cargo.jpg', hasSizes: true, description: 'Rugged yet refined cargo pants with multiple tactical pockets and a modern silhouette.'})">
+                <div class="product-img">
+                    <img src="../assets/images/stealth cargo.jpg" alt="Cargo Pants" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Stealth Cargo</h3>
+                    <p class="price">7000 DZD</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="outerwear"
+                onclick="selectProduct({id: 'night-bomber', name: 'Night Bomber', price: '11000 DZD', image: '../assets/images/night bomber.jpg', hasSizes: true, description: 'Classic streetwear bomber jacket with a sleek finish and lightweight insulation.'})">
+                <div class="product-img">
+                    <img src="../assets/images/night bomber.jpg" alt="Bomber Jacket" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Night Bomber</h3>
+                    <p class="price">11000 DZD</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="tops"
+                onclick="selectProduct({id: 'slate-hoodie', name: 'Slate Hoodie', price: '4900 DZD', image: '../assets/images/slate hoodie.jpg', hasSizes: true, description: 'Premium heavyweight fleece hoodie with a minimalist aesthetic and relaxed fit.'})">
+                <div class="product-img">
+                    <img src="../assets/images/slate hoodie.jpg" alt="Slate Hoodie" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Slate Hoodie</h3>
+                    <p class="price">4900 DZD</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="tops"
+                onclick="selectProduct({id: 'desert-linen-shirt', name: 'Desert Linen Shirt', price: '3500 DZD', image: '../assets/images/desert linen shirt.jpg', hasSizes: true, description: 'Breathable desert-inspired linen shirt, perfect for warm climates and relaxed afternoons.'})">
+                <div class="product-img">
+                    <img src="../assets/images/desert linen shirt.jpg" alt="Desert Linen Shirt" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Desert Linen Shirt</h3>
+                    <p class="price">3500 DZD</p>
+                </div>
+            </div>
+            <!-- Product Card 6 (Accessory) -->
+            <div class="product-card" data-category="accessories"
+                onclick="selectProduct({id: 'stealth-matte-watch', name: 'Stealth Matte Watch', price: '14500 DZD', image: '../assets/images/stealth matte watch.png', hasSizes: false, description: 'A premium, minimalist stealth matte black men\'s wristwatch. Engineered for precision and style, featuring a durable matte finish and sapphire crystal glass.'})">
+                <div class="product-img">
+                    <img src="../assets/images/stealth matte watch.png" alt="Stealth Matte Watch" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Stealth Matte Watch</h3>
+                    <p class="price">14500 DZD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+
+</html>

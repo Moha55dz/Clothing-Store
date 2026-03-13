@@ -1,0 +1,40 @@
+/* Mobile Breakpoints */
+@media (max-width: 768px) {
+    nav {
+        padding: 1.5rem 5%;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--primary);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s ease;
+        z-index: 999;
+    }
+
+    .nav-links.mobile-active {
+        right: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+}

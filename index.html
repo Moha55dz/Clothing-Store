@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VESTIMENTA | Modern Men's Essential</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo bebas-font">VESTIMENTA</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/shop.html">Shop</a></li>
+        </ul>
+        <div class="cart-icon" id="cart-btn">
+            CART (<span id="cart-count">0</span>)
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>UNCOMPROMISED <br> QUALITY.</h1>
+        <p>Premium essentials for the modern man. Sharp, minimal, and built to last.</p>
+        <a href="pages/shop.html" class="cta-button">Shop Collection</a>
+    </header>
+
+    <section class="section">
+        <div class="section-header">
+            <h2 class="bebas-font">New Arrivals</h2>
+            <a href="pages/shop.html" style="color: white; text-transform: uppercase; font-size: small;">View All</a>
+        </div>
+        <div class="grid">
+            <!-- Product Card 1 -->
+            <div class="product-card"
+                onclick="selectProduct({id: 'black-tech-tee', name: 'Black Tech Tee', price: '2500 DZD', image: 'assets/images/black tech tee.jpg', hasSizes: true, description: 'Engineered for performance and style. Featuring moisture-wicking technology and a tailored athletic fit.'})">
+                <div class="product-img">
+                    <img src="assets/images/black tech tee.jpg" alt="Black Tech Tee" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Black Tech Tee</h3>
+                    <p class="price">2500 DZD</p>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card"
+                onclick="selectProduct({id: 'slate-hoodie', name: 'Slate Hoodie', price: '4900 DZD', image: 'assets/images/slate hoodie.jpg', hasSizes: true, description: 'Premium heavyweight fleece hoodie with a minimalist aesthetic and relaxed fit.'})">
+                <div class="product-img">
+                    <img src="assets/images/slate hoodie.jpg" alt="Minimalist Hoodie" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Slate Hoodie</h3>
+                    <p class="price">4900 DZD</p>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card"
+                onclick="selectProduct({id: 'desert-linen-shirt', name: 'Desert Linen Shirt', price: '3500 DZD', image: 'assets/images/desert linen shirt.jpg', hasSizes: true, description: 'Breathable desert-inspired linen shirt, perfect for warm climates and relaxed afternoons.'})">
+                <div class="product-img">
+                    <img src="assets/images/desert linen shirt.jpg" alt="Desert Linen Shirt" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3 class="bebas-font">Desert Linen Shirt</h3>
+                    <p class="price">3500 DZD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
