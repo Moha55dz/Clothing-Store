@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | VESTIMENTA</title>
+    <title>Checkout | VANTAWEAR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/png" href="../assets/icons/Untitled design.png">
     <style>
         .checkout-container {
             padding: 10rem 5% 5rem;
@@ -51,7 +52,12 @@
 
 <body>
     <nav>
-        <div class="logo bebas-font">VESTIMENTA</div>
+        <div class="logo bebas-font">
+            <a href="../index.html">
+                <img src="../assets/icons/Untitled_design-removebg-preview.png" alt="VANTAWEAR LOGO">
+                VANTAWEAR
+            </a>
+        </div>
         <ul class="nav-links">
             <li><a href="../index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
@@ -217,7 +223,7 @@
         document.getElementById('checkout-form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Commande confirmée ! Nous vous contacterons par téléphone pour la livraison.');
-            localStorage.removeItem('vestimenta_cart');
+            localStorage.removeItem('vantawear_cart');
             window.location.href = '../index.html';
         });
     </script>

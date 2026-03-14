@@ -1,5 +1,5 @@
 // Cart State Management
-let cart = JSON.parse(localStorage.getItem('vestimenta_cart')) || [];
+let cart = JSON.parse(localStorage.getItem('vantawear_cart')) || [];
 
 function updateCartBadge() {
     const badges = document.querySelectorAll('#cart-count, .cart-icon');
@@ -20,8 +20,14 @@ function updateCartBadge() {
 }
 
 function selectProduct(product) {
-    localStorage.setItem('vestimenta_selected_product', JSON.stringify(product));
     const isSubPage = window.location.pathname.includes('/pages/');
+    
+    // Adjust image path if we're on the home page but going to a subpage product.html
+    if (!isSubPage && product.image && product.image.startsWith('assets/')) {
+        product.image = '../' + product.image;
+    }
+    
+    localStorage.setItem('vantawear_selected_product', JSON.stringify(product));
     window.location.href = isSubPage ? 'product.html' : 'pages/product.html';
 }
 
@@ -34,7 +40,7 @@ function addToCart(product) {
         cart.push({ ...product, quantity: quantityToAdd });
     }
 
-    localStorage.setItem('vestimenta_cart', JSON.stringify(cart));
+    localStorage.setItem('vantawear_cart', JSON.stringify(cart));
     updateCartBadge();
 
     // Simple feedback
@@ -52,7 +58,7 @@ function addToCart(product) {
 
 function removeFromCart(id, size) {
     cart = cart.filter(item => !(item.id === id && item.size === size));
-    localStorage.setItem('vestimenta_cart', JSON.stringify(cart));
+    localStorage.setItem('vantawear_cart', JSON.stringify(cart));
     updateCartBadge();
     if (typeof renderCheckoutItems === 'function') {
         renderCheckoutItems();
