@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --color-accent: #ffffff;
+  --color-muted: #a1a1aa;
+  --color-border: #27272a;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-inter antialiased;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
